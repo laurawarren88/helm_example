@@ -4,6 +4,7 @@ GO_ENV: production
 webserver:
   releaseName: webserver
   port: 5050
+  type: NodePort
   nodePort: 31300
   host: example.com
 
@@ -16,6 +17,7 @@ replicaCount: 1
 
 api:
   port: 8080
+  type: NodePort
   nodePort: 31301
   releaseName: api
 
@@ -23,6 +25,7 @@ database:
   name: LMWfitness
   user: postgres
   port: 5432
+  type: ClusterIP
   sslMode: disable
 
 storage:
