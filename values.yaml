@@ -7,6 +7,8 @@ webserver:
   type: NodePort
   nodePort: 31300
   host: example.com
+  path: /
+  pathType: Prefix
 
 image:
   repository: docker-username/image-name
@@ -20,6 +22,8 @@ api:
   type: NodePort
   nodePort: 31301
   releaseName: api
+  path: /api/
+  pathType: ImplementationSpecific
 
 database:
   name: LMWfitness
@@ -30,3 +34,14 @@ database:
 
 storage:
   storageClass: standard
+
+livenessProbe:
+  initialDelaySeconds: 30
+  timeoutSeconds: 5
+  periodSeconds: 10
+  failureThreshold: 3
+readinessProbe:
+  initialDelaySeconds: 15
+  timeoutSeconds: 5
+  periodSeconds: 10
+  failureThreshold: 3
