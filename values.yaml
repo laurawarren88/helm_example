@@ -1,0 +1,29 @@
+namespace: default 
+GO_ENV: production
+
+webserver:
+  releaseName: webserver
+  port: 5050
+  nodePort: 31300
+  host: example.com
+
+image:
+  repository: docker-username/image-name
+  tag: v1.0.0
+  pullPolicy: Always
+
+replicaCount: 1
+
+api:
+  port: 8080
+  nodePort: 31301
+  releaseName: api
+
+database:
+  name: LMWfitness
+  user: postgres
+  port: 5432
+  sslMode: disable
+
+storage:
+  storageClass: standard
